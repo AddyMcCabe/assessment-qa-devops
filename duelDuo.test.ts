@@ -20,10 +20,21 @@ test('Title shows up when page loads', async () => {
 })
 
 test('clicking the Draw button displays the div with id="choices"', async () => {
-    await driver.findElement(By.id('draw')).click()
-    await driver.sleep(2000)
-    const botCard = await driver.findElement(By.xpath("(//div/div[contains(@class, 'bot-card')])[1]"))
+    await driver.findElement(By.id('draw')).click();
+    await driver.sleep(2000);
+    const botCard = await driver.findElement(By.xpath("(//div/div[contains(@class, 'bot-card')])[1]"));
 
-    const displayed = botCard.isDisplayed()
-    expect(displayed)
+    const displayed = botCard.isDisplayed();
+    expect(displayed);
+})
+
+test('clicking the "Add to Duo" button displayes the div with id="player-duo"', async () => {
+    await driver.findElement(By.id('draw')).click();
+    await driver.sleep(200);
+    const botButton = await driver.findElement(By.xpath("(//div/button[contains(@class, 'bot-btn')])[1]"));
+
+    const displayed = botButton.isDisplayed();
+    expect(displayed);
+
+
 })
